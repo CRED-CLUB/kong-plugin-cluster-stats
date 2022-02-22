@@ -5,10 +5,23 @@ local string_format = string.format
 local kong = kong
 local connector = kong.db.connector
 
-local CLEANUP_SQL_TEMPLATE =
-  "DELETE FROM cluster_stats_heartbeat WHERE EXTRACT(EPOCH FROM updated_at) < %d"
-local NUM_NODES_SQL_TEMPLATE =
-  "SELECT COUNT(1) FROM cluster_stats_heartbeat WHERE EXTRACT(EPOCH FROM updated_at) > %d"
+local db_type = kong.configuration.database
+
+-- Using DB specefic queries
+
+local CLEANUP_SQL_TEMPLATE 
+local NUM_NODES_SQL_TEMPLATE
+
+if (db_type=='postgres')
+then 
+  CLEANUP_SQL_TEMPLATE = "DELETE FROM cluster_stats_heartbeat WHERE EXTRACT(EPOCH FROM updated_at) < %d"
+  NUM_NODES_SQL_TEMPLATE = "SELECT COUNT(1) FROM cluster_stats_heartbeat WHERE EXTRACT(EPOCH FROM updated_at) > %d"
+else
+  -- Queries for cassandra 
+  CLEANUP_SQL_TEMPLATE = "DELETE FROM kong_island.cluster_stats_heartbeat WHERE updated_at > %d ALLOW FILTERING;"
+  NUM_NODES_SQL_TEMPLATE = "SELECT COUNT(1) FROM kong_island.cluster_stats_heartbeat WHERE updated_at > %d ALLOW FILTERING;"
+end
+
 
 function _M.insert_heartbeat(id)
   local entity, err = kong.db.cluster_stats_heartbeat:insert({node_id = id})
