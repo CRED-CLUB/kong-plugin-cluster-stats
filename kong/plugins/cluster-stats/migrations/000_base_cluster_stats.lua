@@ -24,7 +24,7 @@ return {
         node_id     text,
         PRIMARY KEY (node_id),
       );
-      CREATE INDEX ts_idx on kong_island.cluster_stats_heartbeat(updated_at);
+      CREATE INDEX IF NOT EXISTS ON cluster_stats_heartbeat(updated_at);
     ]]
   }
 }
