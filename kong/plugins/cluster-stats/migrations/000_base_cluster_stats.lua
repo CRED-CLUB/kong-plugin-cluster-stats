@@ -24,6 +24,7 @@ return {
         node_id     text,
         PRIMARY KEY (node_id),
       );
+      CREATE INDEX IF NOT EXISTS ON cluster_stats_heartbeat(updated_at);
     ]]
   }
 }
