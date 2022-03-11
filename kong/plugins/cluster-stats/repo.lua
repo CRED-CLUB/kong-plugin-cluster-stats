@@ -18,7 +18,7 @@ then
   NUM_NODES_SQL_TEMPLATE = "SELECT COUNT(1) FROM cluster_stats_heartbeat WHERE EXTRACT(EPOCH FROM updated_at) > %d"
 else
   -- Queries for cassandra 
-  CLEANUP_SQL_TEMPLATE = "DELETE FROM cluster_stats_heartbeat WHERE updated_at > %d ALLOW FILTERING;"
+  CLEANUP_SQL_TEMPLATE = "DELETE FROM cluster_stats_heartbeat WHERE updated_at < %d ALLOW FILTERING;"
   NUM_NODES_SQL_TEMPLATE = "SELECT COUNT(1) FROM cluster_stats_heartbeat WHERE updated_at > %d ALLOW FILTERING;"
 end
 
