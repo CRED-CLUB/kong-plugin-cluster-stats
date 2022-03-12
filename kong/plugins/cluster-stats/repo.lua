@@ -61,7 +61,8 @@ function _M.delete_heartbeats_older_than(timestamp)
     
     if err ~= nil then kong.log.err("error running cleanup: ", err) end
   else 
-    local get_cleanup_nodes_sql = string_format(NODES_CLEANUP_SQL_TEMPLATE, timestamp)
+    -- Cassandra stores timestamp in milliseconds
+    local get_cleanup_nodes_sql = string_format(NODES_CLEANUP_SQL_TEMPLATE, timestamp*1000)
     local rows, err, _, _ = connector:query(get_cleanup_nodes_sql)
 
     if err ~= nil then kong.log.err("error running cleanup: ", err) return end
@@ -75,8 +76,15 @@ function _M.delete_heartbeats_older_than(timestamp)
 end
 
 function _M.count_heartbeats_not_older_than(timestamp)
-  local sql = string_format(NUM_NODES_SQL_TEMPLATE, timestamp)
-  local rows, err, _, _ = connector:query(sql)
+  local sql
+  if(db_type=='postgres') then 
+    sql = string_format(NUM_NODES_SQL_TEMPLATE, timestamp)
+  else 
+    -- Cassandra stores timestamp in milliseconds
+    sql = string_format(NUM_NODES_SQL_TEMPLATE, timestamp*1000)
+  end
+    local rows, err, _, _ = connector:query(sql)
+
   if err ~= nil then kong.log.err("error running num nodes: ", err) end
   if rows then return rows[1]["count"] end
   -- return -1 on error
