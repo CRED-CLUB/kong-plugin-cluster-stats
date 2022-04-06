@@ -31,4 +31,4 @@ jobs:
       
       - name: Tests 
         run: |
-        ../kong-pongo/pongo.sh lint && ../kong-pongo/pongo.sh run && 
+          ../kong-pongo/pongo.sh lint && ../kong-pongo/pongo.sh run && 
