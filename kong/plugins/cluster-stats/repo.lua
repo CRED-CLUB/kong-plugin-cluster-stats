@@ -41,12 +41,12 @@ local function convert_to_string(rows)
 end
 
 function _M.insert_heartbeat(id)
-  local entity, err = kong.db.cluster_stats_heartbeat:insert({node_id = id})
+  local _, err = kong.db.cluster_stats_heartbeat:insert({node_id = id})
   if err ~= nil then kong.log.err("error in insert: ", err) end
 end
 
 function _M.update_heartbeat(id)
-  local entity, err = kong.db.cluster_stats_heartbeat:update({node_id = id},
+  local _, err = kong.db.cluster_stats_heartbeat:update({node_id = id},
                                                              {node_id = id}, {
     updated_at = ngx_now()
   })
