@@ -22,11 +22,11 @@ function ClusterStatsHandler:init_worker()
   ClusterStatsHandler.super.init_worker(self)
   worker:register_node(node_id)
   -- schedule heartbeat
-  timer_every(config.HEARTBEAT_SEND_INTERVAL_IN_SECS, worker.send_heartbeat,
+  timer_every(config.heartbeat_send_interval_in_secs, worker.send_heartbeat,
               node_id)
   -- schedule cleanup
-  timer_every(config.HEARTBEAT_CLEANUP_INTERVAL_IN_SECS, worker.run_cleanup,
-              config.HEARTBEAT_CLEANUP_OLDER_THAN_IN_SEC)
+  timer_every(config.heartbeat_cleanup_interval_in_secs, worker.run_cleanup,
+              config.heartbeat_cleanup_older_than_in_secs)
 end
 
 return ClusterStatsHandler

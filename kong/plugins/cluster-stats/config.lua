@@ -1,15 +1,15 @@
 local _M = {}
 
 -- interval at which to write heartbeat in db
-_M.HEARTBEAT_SEND_INTERVAL_IN_SECS = 1
+_M.heartbeat_send_interval_in_secs = 1
 
 -- interval at which to cleanup stale heartbeat entries in db
-_M.HEARTBEAT_CLEANUP_INTERVAL_IN_SECS = 60
+_M.heartbeat_cleanup_interval_in_secs = 60
 
 -- maximum duration to look back while fetching heartbeat records
-_M.HEARTBEAT_FETCH_NOT_OLDER_THAN_IN_SEC = 3
+_M.heartbeat_fetch_not_older_than_in_secs = 3
 
 -- cleaup heartbeat records older than
-_M.HEARTBEAT_CLEANUP_OLDER_THAN_IN_SEC = 60
+_M.heartbeat_cleanup_older_than_in_secs = 60
 
 return _M
