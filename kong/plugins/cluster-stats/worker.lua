@@ -7,11 +7,11 @@ local repo = require 'kong.plugins.cluster-stats.repo'
 -- run these functions only if master
 
 function _M.send_heartbeat(self, id)
-  if ngx.worker.id() == 0 then repo.update_heartbeat(id) end
+  if ngx.worker.id() == 0 then repo.upsert_heartbeat(id) end
 end
 
 function _M.register_node(self, id)
-  if ngx.worker.id() == 0 then repo.insert_heartbeat(id) end
+  if ngx.worker.id() == 0 then repo.upsert_heartbeat(id) end
 end
 
 function _M.run_cleanup(self, duration)
