@@ -19,28 +19,32 @@ return {
             heartbeat_send_interval_in_secs = {
               type = "integer",
               required = true,
-              default = 1
+              default = 1,
+              gt = 1
             }
           },
           {
             heartbeat_cleanup_interval_in_secs = {
               type = "integer",
               required = true,
-              default = 60
+              default = 60,
+              gt = 1
             }
           },
           {
             heartbeat_fetch_not_older_than_in_secs = {
               type = "integer",
               required = true,
-              default = 3
+              default = 3,
+              gt = 1
             }
           },
           {
             heartbeat_cleanup_older_than_in_secs = {
               type = "integer",
               required = true,
-              default = 60
+              default = 60,
+              gt = 1
             }
           },
         }
