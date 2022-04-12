@@ -20,7 +20,7 @@ return {
               type = "integer",
               required = true,
               default = 1,
-              gt = 1
+              gt = 0
             }
           },
           {
@@ -28,7 +28,7 @@ return {
               type = "integer",
               required = true,
               default = 60,
-              gt = 1
+              gt = 0
             }
           },
           {
@@ -36,7 +36,7 @@ return {
               type = "integer",
               required = true,
               default = 3,
-              gt = 1
+              gt = 0
             }
           },
           {
@@ -44,7 +44,7 @@ return {
               type = "integer",
               required = true,
               default = 60,
-              gt = 1
+              gt = 0
             }
           },
         }

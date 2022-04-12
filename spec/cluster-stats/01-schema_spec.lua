@@ -4,8 +4,8 @@ local validator = require("spec.helpers").validate_plugin_config_schema
 
 
 describe("Plugin: " .. PLUGIN_NAME .. " (schema), ", function()
-  it("no config fails", function()
-    assert.falsy(validator({}, schema_def))
+  it("no config passes", function()
+    assert(validator({}, schema_def))
   end)
   it("full conf validates", function()
     assert(validator({
@@ -19,6 +19,6 @@ describe("Plugin: " .. PLUGIN_NAME .. " (schema), ", function()
     local config = {heartbeat_send_interval_in_secs = -2}
     local ok, err = validator(config,schema_def)
     assert.falsy(ok)
-    assert.same({heartbeat_send_interval_in_secs='value must be greater than 1'},err.config)
+    assert.same({heartbeat_send_interval_in_secs='value must be greater than 0'},err.config)
   end)
 end)
