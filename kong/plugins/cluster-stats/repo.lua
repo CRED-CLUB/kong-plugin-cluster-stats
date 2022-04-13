@@ -36,12 +36,12 @@ local function convert_to_string(rows)
   if result ~= "" then
     result = result:sub(1, result:len() - 1)
   end
-
   return "(" .. result .. ")"
 end
 
 function _M.upsert_heartbeat(id)
   local _, err = kong.db.cluster_stats_heartbeat:upsert({ node_id = id }, {
+
     updated_at = ngx_now()
   })
   if err ~= nil then kong.log.err("error in upserting: ", err) end
