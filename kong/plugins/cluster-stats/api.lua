@@ -9,7 +9,7 @@ return {
     before = function(self, db, helpers) end,
     GET = function(self, db, helpers)
       local n = repo.count_heartbeats_not_older_than(ngx_now() -
-                                                       config.heartbeat_fetch_not_older_than_in_secs)
+                                                       config.HEARTBEAT_FETCH_NOT_OLDER_THAN_IN_SEC)
       -- return 500 on error i.e when count returned is -1
       if n < 0 then return kong.response.exit(500, "error") end
       kong.response.set_header("Content-Type", "application/json")

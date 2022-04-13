@@ -38,7 +38,7 @@ The plugin also schedules a clean up job which removes stale entries from the da
 
 Since, the heartbeat and the cleanup jobs are scheduled in the `init_worker` phase, the configuration is static and cannot be changed dynamically. The `config.lua` file contains the following configurations.
 
-1. `heartbeat_send_interval_in_secs`: The interval at which heartbeat entries are updated in the db. **Default = 1s**
-2. `heartbeat_cleanup_interval_in_secs`: The interval at which stale heartbeat entries are cleaned up from the db. **Default = 60s**
-3. `heartbeat_fetch_not_older_than_in_secs`: The maximum duration to look back while fetching heartbeat records. **Default = 3s**
-4. `heartbeat_cleanup_older_than_in_secs`: The heartbeat entries not updated last in this duration are cleaned up. **Default = 60s** 
+1. `HEARTBEAT_SEND_INTERVAL_IN_SECS`: The interval at which heartbeat entries are updated in the db. **Default = 1s**
+2. `HEARTBEAT_CLEANUP_INTERVAL_IN_SECS`: The interval at which stale heartbeat entries are cleaned up from the db. **Default = 60s**
+3. `HEARTBEAT_FETCH_NOT_OLDER_THAN_IN_SEC`: The maximum duration to look back while fetching heartbeat records. **Default = 3s**
+4. `HEARTBEAT_CLEANUP_OLDER_THAN_IN_SEC`: The heartbeat entries not updated last in this duration are cleaned up. **Default = 60s** 
