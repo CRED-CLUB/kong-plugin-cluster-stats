@@ -1,11 +1,8 @@
 local _M = {}
 
-local repo = require 'kong.plugins.cluster-stats.repo'
-local config = require 'kong.plugins.cluster-stats.config'
-
 local ngx = ngx
 local ngx_now = ngx.now
-local kong = kong
+local repo = require 'kong.plugins.cluster-stats.repo'
 
 -- run these functions only if master
 

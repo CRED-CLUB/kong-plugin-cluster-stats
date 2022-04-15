@@ -3,3 +3,6 @@ servroot
 
 # packed distribution format for LuaRocks
 *.rock
+
+#editors
+.vscode

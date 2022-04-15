@@ -1,7 +1,7 @@
 # kong-plugin-cluster-stats
 
 `kong-plugin-cluster-stats` plugin exposes different stats for a kong cluster.
-Currently it supports getting
+Currently it supports getting:
 
 - Number of kong nodes in the cluster
 
