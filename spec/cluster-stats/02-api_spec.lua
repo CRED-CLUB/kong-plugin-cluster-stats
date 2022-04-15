@@ -60,7 +60,7 @@ for _, strategy in helpers.each_strategy() do
             assert.same(2, num_nodes)
         end)
 
-        pending("check for stale nodes", function()
+        it("check for stale nodes", function()
             -- Inserting test node in db
             -- Total nodes = 2 
             -- (1 test node is created by kong)
@@ -70,6 +70,8 @@ for _, strategy in helpers.each_strategy() do
             db.cluster_stats_heartbeat:update({node_id = test_node_id}, {
                 updated_at = 0
             })
+            -- Sleep for 5 secons so that changes made are reflected 
+            ngx.sleep(5)
 
             local num_nodes = get_num_nodes(admin_client)
             assert.same(1, num_nodes)
