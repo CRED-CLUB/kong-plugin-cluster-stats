@@ -1,4 +1,6 @@
 # 📊 kong-plugin-cluster-stats
+[![CI Tests](https://github.com/CRED-CLUB/kong-plugin-cluster-stats/actions/workflows/CI_tests.yml/badge.svg)](https://github.com/CRED-CLUB/kong-plugin-cluster-stats/actions/workflows/CI_tests.yml)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Overview
 
