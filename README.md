@@ -38,8 +38,13 @@ The API, when queried, returns the most recently updated nodes from this table a
 
 ### Configuration
 
-Since the heartbeat and the cleanup jobs are scheduled in the `init_worker` phase, the configuration is static and cannot be changed dynamically. The `config.lua` file contains the following configurations.
-1. `HEARTBEAT_SEND_INTERVAL_IN_SECS`: The interval at which heartbeat entries are updated by the nodes in the database. **Default = 1s**
-2. `HEARTBEAT_CLEANUP_INTERVAL_IN_SECS`: The interval at which stale heartbeat entries are cleaned up from the database. **Default = 60s**
-3. `HEARTBEAT_FETCH_NOT_OLDER_THAN_IN_SEC`: The maximum duration to look back while fetching heartbeat records while querying the active number of nodes. **Default = 3s**
-4. `HEARTBEAT_CLEANUP_OLDER_THAN_IN_SEC`: The heartbeat entries older than this duration are cleaned up. **Default = 60s** 
+
+> Since the heartbeat and the cleanup jobs are scheduled in the `init_worker` phase, the configuration is static and cannot be changed dynamically. The `config.lua` file contains the following configurations.
+
+| Parameter | Description |
+| ------ | ------ |
+|`HEARTBEAT_SEND_INTERVAL_IN_SECS` | The interval at which heartbeat entries are updated by the nodes in the database. (Default = 1s)|
+|`HEARTBEAT_CLEANUP_INTERVAL_IN_SECS` | The interval at which stale heartbeat entries are cleaned up from the database. (Default = 60s)|
+|`HEARTBEAT_FETCH_NOT_OLDER_THAN_IN_SEC` | The maximum duration to look back while fetching heartbeat records while querying the active number of nodes. (Default = 3s)|
+|`HEARTBEAT_CLEANUP_OLDER_THAN_IN_SEC` | The heartbeat entries older than this duration are cleaned up. (Default = 60s)| 
+
