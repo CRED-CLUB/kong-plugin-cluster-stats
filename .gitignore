@@ -6,3 +6,6 @@ servroot
 
 #editors
 .vscode
+
+#jekyll
+.jekyll-cache/

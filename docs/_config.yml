@@ -23,14 +23,30 @@ title: kong-plugin-cluster-stats
 description: >- # this means to ignore newlines until "baseurl:"
   kong plugin to get different cluster level stats for a kong cluster
 
+baseurl: "/kong-plugin-cluster-stats"
+url: "https://cred-club.github.io"
+
 # Build settings
-remote_theme: "pmarsceill/just-the-docs"
+remote_theme: pmarsceill/just-the-docs
 
 plugins:
   - jekyll-feed
 
 # Search settings
 search_enabled: true
+
+# Aux links for the upper right navigation
+aux_links:
+  "View on GitHub":
+    - "//github.com/CRED-CLUB/kong-plugin-cluster-stats"
+aux_links_new_tab: true
+
+heading_anchors: true
+
+last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
+last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
+
+future: true
 
 # Split pages into sections that can be searched individually
 # Supports 1 - 6, default: 2
