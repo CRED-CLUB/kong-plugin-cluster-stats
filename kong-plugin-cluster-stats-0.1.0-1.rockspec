@@ -6,12 +6,12 @@ version = "0.1.0-1"
 supported_platforms = {"linux", "macosx"}
 
 source = {
-  url = "https://bitbucket.org/dreamplug-backend/kong-plugin-cluster-stats",
+  url = "https://github.com/CRED-CLUB/kong-plugin-cluster-stats",
   tag = "0.1.0"
 }
 
 description = {
-  summary = "Plugin to get cluster stats e.g number of nodes",
+  summary = "Plugin to get kong cluster stats e.g number of nodes",
   homepage = "http://getkong.org",
   license = "Apache 2.0"
 }
